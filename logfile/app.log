@@ -246,3 +246,14 @@
 Traceback (most recent call last):
   File "<string>", line 23, in <module>
 ValueError: test error for traceback
+2026-09-14 14:21:18 | PID=86923 | INFO     | utils.tools | tools.py:43 | call_tool_with_interrupt | 收到人工审查响应 | tool='demo_tool' | response_type='accept' | has_args=False
+2026-09-14 14:21:18 | PID=86923 | INFO     | utils.tools | tools.py:65 | call_tool_with_interrupt | 工具处理完成 | tool='demo_tool' | response='got 42'
+2026-09-14 14:21:20 | PID=86956 | INFO     | utils.tools | tools.py:43 | call_tool_with_interrupt | 收到人工审查响应 | tool='demo_tool' | response_type='accept' | has_args=False
+2026-09-14 14:21:20 | PID=86956 | INFO     | utils.tools | tools.py:65 | call_tool_with_interrupt | 工具处理完成 | tool='demo_tool' | response='got 42'
+2026-09-14 14:21:20 | PID=86956 | INFO     | utils.tools | tools.py:43 | call_tool_with_interrupt | 收到人工审查响应 | tool='demo_tool' | response_type='reject' | has_args=False
+2026-09-14 14:21:20 | PID=86956 | INFO     | utils.tools | tools.py:65 | call_tool_with_interrupt | 工具处理完成 | tool='demo_tool' | response='该工具被拒绝使用，请尝试其他方法或拒绝回答问题。'
+2026-09-14 14:21:20 | PID=86956 | INFO     | utils.tools | tools.py:43 | call_tool_with_interrupt | 收到人工审查响应 | tool='demo_tool' | response_type='response' | has_args=True
+2026-09-14 14:21:20 | PID=86956 | INFO     | utils.tools | tools.py:65 | call_tool_with_interrupt | 工具处理完成 | tool='demo_tool' | response='自定义反馈'
+2026-09-14 14:21:28 | PID=87028 | INFO     | utils.tools | tools.py:43 | call_tool_with_interrupt | 收到人工审查响应 | tool='demo_tool' | response_type='edit' | has_args=True
+2026-09-14 14:21:28 | PID=87028 | INFO     | utils.tools | tools.py:54 | call_tool_with_interrupt | 用户编辑了工具参数 | tool='demo_tool' | new_args="{'x': 7}"
+2026-09-14 14:21:28 | PID=87028 | INFO     | utils.tools | tools.py:65 | call_tool_with_interrupt | 工具处理完成 | tool='demo_tool' | response='got 7'

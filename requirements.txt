@@ -37,6 +37,6 @@ concurrent-log-handler==0.9.29
 
 # 备注：
 # 1) psycopg 必须带 [binary,pool] extra，否则 AsyncPostgresSaver 报 "no pq wrapper available"。
-# 2) 已现代化：utils/tasks.py 由 langgraph.prebuilt.create_react_agent(pre_model_hook=...)
-#    迁移到 langchain.agents.create_agent(middleware=[...])，消息修剪改用 @wrap_model_call 中间件，
-#    不再依赖已废弃的 create_react_agent / pre_model_hook。HITL 工具级 interrupt 契约保持不变。
+# 2) 已现代化：Agent 构建用 langchain.agents.create_agent(middleware=[...])，消息修剪用 @wrap_model_call。
+# 3) langgraph 1.x 已弃用 langgraph.prebuilt.interrupt.HumanInterrupt/HumanInterruptConfig，
+#    HITL 中断载荷改用纯 dict（前端契约不变）。验证：python test_hitl_contract.py
