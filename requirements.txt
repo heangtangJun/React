@@ -1,0 +1,42 @@
+# ReAct Agent 生产级服务 —— 运行时依赖（最新一致版本集）
+# 说明：已从 README 的旧锁定版（langgraph 0.4.x / langchain 0.3.x）整体升级到当前最新版，
+#       并将 utils/tasks.py 的 Agent 构建现代化为 create_agent + middleware。实测 import、
+#       Agent 运行期构建、HITL 中断/恢复端到端流程均通过。
+# 建议 Python 3.11 环境安装（当前 react 环境为 3.11.16）。
+
+# ---- LangGraph / LangChain 生态 ----
+langgraph==1.2.11
+langgraph-prebuilt==1.1.0
+langgraph-checkpoint-postgres==3.1.2
+langchain==1.4.0
+langchain-core==1.6.2
+langchain-openai==1.6.2
+langchain-mcp-adapters==0.3.2
+mcp==1.30.0
+
+# ---- Web / API 服务 ----
+fastapi==0.141.1
+uvicorn==0.52.4
+
+# ---- 异步任务队列 ----
+celery==5.6.3
+
+# ---- 数据存储 / 缓存 ----
+redis==8.1.0
+psycopg[binary,pool]==3.3.5
+
+# ---- 数据模型 ----
+pydantic==2.13.5
+
+# ---- 前端终端 UI & 网络 ----
+rich==15.0.0
+requests==2.34.2
+
+# ---- 日志 ----
+concurrent-log-handler==0.9.29
+
+# 备注：
+# 1) psycopg 必须带 [binary,pool] extra，否则 AsyncPostgresSaver 报 "no pq wrapper available"。
+# 2) 已现代化：utils/tasks.py 由 langgraph.prebuilt.create_react_agent(pre_model_hook=...)
+#    迁移到 langchain.agents.create_agent(middleware=[...])，消息修剪改用 @wrap_model_call 中间件，
+#    不再依赖已废弃的 create_react_agent / pre_model_hook。HITL 工具级 interrupt 契约保持不变。

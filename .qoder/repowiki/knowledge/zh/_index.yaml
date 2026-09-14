@@ -1,0 +1,32 @@
+# 知识卡导出索引文件
+schema_version: 1
+locale: zh-CN
+branch: Q0DeR-MaG1C-BrAnCh-Fo2-NoN-GiT-Or-No-C0MmIt
+nodes_managed: true
+exported_at: "2026-09-10T02:50:48Z"
+modules:
+    "":
+        dir_name: ReAct Agent 生产级服务（多代演进工程）
+        title: ReAct Agent 生产级服务（多代演进工程）
+        scope:
+            - README.md
+            - pip.sh
+            - redisTest.py
+            - .env
+            - 02_frontendServer.py
+            - 代码架构详解.md
+        source_files: []
+        children:
+            - backend_server
+        depends_on: []
+        related_to: []
+    backend_server:
+        dir_name: ReAct Agent 后端服务（FastAPI + Celery 异步任务）
+        title: ReAct Agent 后端服务（FastAPI + Celery 异步任务）
+        scope:
+            - 01_backendServer.py
+            - utils/
+        source_files: []
+        children: []
+        depends_on: []
+        related_to: []
