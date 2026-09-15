@@ -1,0 +1,7 @@
+# 白名单模式:默认全部忽略,只放行代码和 docker
+*
+!*/
+!/.gitignore
+!*.py
+!/requirements.txt
+!/docker/**
